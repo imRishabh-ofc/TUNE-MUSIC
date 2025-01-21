@@ -13,11 +13,12 @@ const app = express();
 // CORS configuration
 const allowedOrigins = [
     'http://localhost:3000', // Local development
-    'https://tune-music.onrender.com', // Your backend URL
+    'https://tune-music.onrender.com' // Production URL on Render
 ];
 
 app.use(cors({
     origin: function (origin, callback) {
+        // Allow requests without an origin (like mobile or Postman)
         if (!origin || allowedOrigins.includes(origin)) {
             callback(null, true);
         } else {
