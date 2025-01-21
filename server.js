@@ -24,7 +24,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const dbURI = 'mongodb+srv://tunemusic:tunemusic@tunemusiclogin.pb3aa.mongodb.net/';
 
 // Connect to MongoDB
-mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(dbURI)
     .then(() => console.log("Connected to MongoDB"))
     .catch(err => console.log("Error connecting to MongoDB:", err));
 
