@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="logo.png">
+
+</head>
+<body>
+    <div class="main-logo"><img src="logo.png"></div>
+    <div class="login-container">
+        <img src="logo.png" alt="Tune Music Logo">
+        <h1>Sign Up</h1>
+    
+        <form id="signupForm">
+            <div class="form-group">
+                <label for="profileName"></label>
+                <input type="text" id="profileName" name="profileName" placeholder="Enter Profile Name" required>
+            </div>
+    
+            <div class="form-group">
+                <label for="username"></label>
+                <input type="text" id="username" name="username" placeholder="Enter Username" required>
+            </div>
+    
+            <div class="form-group">
+                <label for="password"></label>
+                <input type="password" id="password" name="password" placeholder="Enter Password" required>
+            </div>
+    
+            <input type="submit" value="Sign Up">
+        </form>
+    
+        <div class="footer">
+            <p style="color: white";>Already have an account? <a href="login.html" style="color: rgba(248, 215, 242, 0.852);">Login here</a></p>
+        </div>
+    </div>
+    
+    
+    
+    <!-- Modal for displaying messages -->
+    <div id="modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p id="modalMessage"></p>
+        </div>
+    </div>
+
+    <!-- Include the signup.js script -->
+    <script src="signup.js"></script>
+</body>
+</html>

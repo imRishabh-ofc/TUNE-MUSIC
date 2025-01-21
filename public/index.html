@@ -1,0 +1,167 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tune Music</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600&family=Oswald:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" type="image/png" href="logo.png">
+
+</head>
+<body>
+    <div class="main-logo"><img src="logo.png"></div>
+    <!-- Navigation -->
+    <nav id="tm-nav">
+        <div>
+            <button id="menu-toggle"><i class="fas fa-2x fa-bars"></i></button>
+            <ul>
+                <li><a href="#intro">Home</a></li>
+                <li><a href="#login-signup">App</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Intro -->
+    <div id="intro">
+        <div>
+            <div>
+                <div>
+                    <h1>TUNE MUSIC</h1>
+                    <p>Welcome to Tune Music! Your ultimate music companion, designed to bring you closer to the melodies you love. We offer a wide variety of tracks, playlists, and curated collections across all genres. Whether you're listening on the go, relaxing at home, or at a party, Tune Music provides the perfect soundtrack for every moment.
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        Discover your favorite tunes and explore curated playlists on TUNE MUSIC. Whether you're into pop, rock, classical, or jazz, we've got something for everyone.
+                    </p>
+                </div>
+                <div>
+                    <div>
+                        <a href="#login-signup">
+                            <i class="fas fa-music"></i>
+                            <span>Explore the App</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login & Signup -->
+    <div id="login-signup">
+        <div>
+            <div>
+                <h1>To explore the app</h1>
+            </div>
+            <div>
+                <div>
+                    <button onclick="window.location.href='login.html'">SIGN IN</button>
+                </div>
+
+                <p>
+                    Enter your profile name, username and password.
+                    Access all your saved music, playlists, and more.
+                    </p>
+
+                <div>
+                    <button onclick="window.location.href='signup.html'">SIGN UP</button>
+                </div>
+                <p>Sign up using your profile name, username password.
+                    There are no plans, get started with your personalized music experience.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- About -->
+    <div id="about">
+        <div>
+            <div>
+                <div>
+                    <h2>About TUNE MUSIC</h2>
+                    <p>
+                        Tune Music was founded with one goal in mind: to make music more accessible, enjoyable, and personalized. Our platform curates music to fit every mood, from new releases to classic hits. We're passionate about connecting people with the artists and sounds they love.
+                        <br><br><br><br>
+                    </p>
+                    <p style="text-align: left;">
+                        Our Values:
+                        <br><br>
+                        Passion for music and creativity<br><br>
+                        Commitment to offering a seamless user experience<br><br>
+                        Support for both emerging and established artists<br><br>
+                        A dedication to innovation and customer satisfaction<br><br>
+                    </p>
+                </div>
+                <a href="#contact">
+                    <i class="far fa-comments"></i>
+                    Contact Us
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact -->
+    <div id="contact">
+        <div>
+            <div>
+                <div>
+                    <h2>Get in Touch</h2>
+                    <p>
+                        We're always here to assist! Whether you have questions, feedback, or suggestions, we want to hear from you. Get in touch with our team using the following contact methods:
+                    </p>
+                    <p style="text-align: left;">
+                        <br><br>Ways to Contact Us:<br><br>
+
+                        Email: <a href="mailto:contact.tunemusic@gmail.com">contact.tunemusic@gmail.com</a>
+                        <br>Phone: (123) 456-7890
+                        <br>Social Media: Follow us on Twitter, Facebook, and Instagram
+
+                        
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkAndShowHideMenu() {
+            if(window.innerWidth < 768) {
+                document.querySelector('#tm-nav ul').classList.add('hidden');                
+            } else {
+                document.querySelector('#tm-nav ul').classList.remove('hidden');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            checkAndShowHideMenu();
+            window.addEventListener('resize', checkAndShowHideMenu);
+
+            document.querySelector('#menu-toggle').addEventListener('click', function() {
+                document.querySelector('#tm-nav ul').classList.toggle('hidden');
+            });
+
+            document.querySelectorAll('#tm-nav ul li').forEach(function(item) {
+                item.addEventListener('click', function() {
+                    if(window.innerWidth < 768) {
+                        document.querySelector('#tm-nav ul').classList.add('hidden');
+                    }                
+                });
+            });
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

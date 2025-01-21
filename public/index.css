@@ -1,0 +1,273 @@
+/* General Styles */
+body {
+    text-decoration: solid;
+    font-weight: bold;
+    font-family: 'Raleway', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 1.6;
+    color: #fff; /* White text color */
+    background: url('playlists.jpg') no-repeat center center fixed; /* Fixed background */
+    background-size: cover; /* Ensure the background covers the entire area */
+}
+
+/* Main Logo Styling */
+.main-logo {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    z-index: 1001;
+}
+
+.main-logo img {
+    width: 100px;
+    height: auto;
+}
+
+
+/* Intro Section */
+#intro {
+    height: 100vh; /* Full height of the viewport */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    padding-top: 60px; /* To account for the fixed header */
+}
+
+
+/* Common Styles for Text */
+h1, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation */
+#tm-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(34, 34, 34, 0.8); /* Transparent background with slight opacity */
+    color: #fff;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Header shadow */
+}
+
+#tm-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+}
+
+#tm-nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+}
+
+#tm-nav ul li a:hover {
+    background: #444;
+    border-radius: 5px;
+}
+
+#menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+/* Intro Text */
+#intro h1 {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+#intro p {
+    font-size: 1.2rem;
+    margin: 1rem 0;
+}
+
+#intro a {
+    display: inline-block;
+    padding: 1rem 2rem;
+    color: #fff;
+    margin-top: 1rem;
+    text-decoration: none;
+    border-radius: 10px;
+    text-shadow: #222;
+    background: #e2292966;
+    backdrop-filter: blur(2px);
+}
+
+#intro a:hover {
+    display: inline-block;
+    padding: 1rem 2rem;
+    color: #fff;
+    margin-top: 1rem;
+    text-decoration: none;
+    border-radius: 10px;
+    text-shadow: #222;
+    background: #e90f0fa6;
+    backdrop-filter: blur(2px);
+}
+
+/* Login & Signup */
+#login-signup {
+    height: 100vh; /* Full height of the viewport */
+    padding: 2rem 2rem;
+    text-align: center;
+}
+
+#login-signup div {
+    margin: 1rem auto;
+    padding: 1.5rem;
+    max-width: 600px;
+}
+
+#login-signup button {
+    width: 100%;
+    display: inline-block;
+    padding: 1.5rem 2rem;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 10px;
+    text-shadow: #222;
+    background: #e2292966;
+    backdrop-filter: blur(2px);
+}
+
+#login-signup button:hover {
+    background:  #e90f0fa6;
+}
+
+/* About Section */
+#about {
+    height: 100vh; /* Full height of the viewport */
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+#about h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+#about p {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+}
+
+#about a {
+    padding: 1rem;
+    display: inline-block;
+    padding: 1rem 2rem;
+    color: #fff;
+    margin-top: 1rem;
+    text-decoration: none;
+    border: none;
+    border-radius: 10px;
+    text-shadow: #222;
+    background: #e2292966;
+    backdrop-filter: blur(2px);
+}
+
+#about a:hover {
+    background: #e90f0fa6;
+}
+
+/* Contact Section */
+#contact {
+    height: 100vh; /* Full height of the viewport */
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+#contact h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+#contact p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+#contact a {
+    color: #ffffffce;
+}
+
+#contact a:hover {
+    color: #ff9c9cdd;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    #menu-toggle {
+        display: block;
+    }
+
+    #tm-nav ul {
+        display: none;
+        flex-direction: column;
+        gap: 0;
+        background: #222;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        padding: 1rem 0;
+    }
+
+    #tm-nav ul li {
+        text-align: center;
+    }
+
+    #tm-nav ul.hidden {
+        display: none;
+    }
+
+    #tm-nav ul.visible {
+        display: flex;
+    }
+
+    /* Adjust sections for mobile */
+    #intro, #login-signup, #about, #contact {
+        height: auto;
+        padding: 2rem 1rem;
+    }
+
+    #intro h1 {
+        font-size: 2.5rem;
+    }
+
+    #intro p {
+        font-size: 1rem;
+    }
+
+    #login-signup button, #about a, #contact a {
+        padding: 1rem;
+        font-size: 1rem;
+    }
+}

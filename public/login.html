@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tune Music | Login</title>
+    <link rel="icon" type="image/png" href="logo.png">
+
+</head>
+<body>
+    <div class="main-logo"><img src="logo.png"></div>
+    <div class="login-container">
+        <img src="logo.png" alt="Tune Music Logo">
+        <h1>Login</h1>
+        <form id="login-form" onsubmit="loginUser(event)">
+            <div class="form-group">
+                <label for="profileName"></label>
+                <input type="text" id="profileName" name="profileName" placeholder="Enter Profile Name" required>
+            </div>
+            <div class="form-group">
+                <label for="username"></label>
+                <input type="text" id="username" name="username" placeholder="Enter Username" required>
+            </div>
+            <div class="form-group">
+                <label for="password"></label>
+                <input type="password" id="password" name="password" placeholder="Enter Password" required>
+            </div>
+            <input type="submit" value="Login">
+        </form>
+        <div class="footer">
+            <p style="color: white;">Don't have an account? <a href="signup.html" style="color: rgba(248, 215, 242, 0.852);">Sign Up</a></p>
+        </div>
+    </div>
+
+    <script>
+        async function loginUser(event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+
+            const profileName = document.getElementById('profileName').value;
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const response = await fetch("http://localhost:3000/login", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ profileName, username, password })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    alert(`Login successful, welcome ${data.profileName}!`);
+                    window.location.href = "app.html";  // Redirect to app.html after successful login
+                } else {
+                    alert(`Error: ${data.message}`);
+                }
+            } catch (error) {
+                console.error("Error during login:", error);
+                alert("An unexpected error occurred. Please try again.");
+            }
+        }
+    </script>
+</body>
+</html>
