@@ -159,16 +159,28 @@ document.querySelector("#file-upload").addEventListener("click", () => fileInput
 closeChatbot.addEventListener("click", () => document.body.classList.remove("show-chatbot"));
 chatbotToggler.addEventListener("click", () => document.body.classList.toggle("show-chatbot"));
 
+document.addEventListener('keydown', (event) => {
+    // Check if the focused element is an input or textarea
+    const activeElement = document.activeElement;
+    if (activeElement.tagName.toLowerCase() === 'input' || activeElement.tagName.toLowerCase() === 'textarea') {
+        return; // Exit the function if typing in an input or textarea
+    }
+
+    if (event.key === 'Alt') {
+        event.preventDefault(); // Prevent default browser action
+        document.body.classList.toggle('show-chatbot');
+    }
+});
 
 document.addEventListener('keydown', (event) => {
-  if (event.key === 'Control') {
-    event.preventDefault(); // Prevent default browser action
-    document.body.classList.toggle('show-chatbot');
-  }
-});
-document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape') {
-    event.preventDefault(); // Prevent default browser action
-    document.body.classList.toggle('show-chatbot');
-  }
+    // Check if the focused element is an input or textarea
+    const activeElement = document.activeElement;
+    if (activeElement.tagName.toLowerCase() === 'input' || activeElement.tagName.toLowerCase() === 'textarea') {
+        return; // Exit the function if typing in an input or textarea
+    }
+
+    if (event.key === 'Escape') {
+        event.preventDefault(); // Prevent default browser action
+        document.body.classList.toggle('show-chatbot');
+    }
 });
