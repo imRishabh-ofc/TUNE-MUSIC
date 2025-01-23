@@ -158,3 +158,17 @@ sendMessage.addEventListener("click", (e) => handleOutgoingMessage(e));
 document.querySelector("#file-upload").addEventListener("click", () => fileInput.click());
 closeChatbot.addEventListener("click", () => document.body.classList.remove("show-chatbot"));
 chatbotToggler.addEventListener("click", () => document.body.classList.toggle("show-chatbot"));
+
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Control') {
+    event.preventDefault(); // Prevent default browser action
+    document.body.classList.toggle('show-chatbot');
+  }
+});
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    event.preventDefault(); // Prevent default browser action
+    document.body.classList.toggle('show-chatbot');
+  }
+});
