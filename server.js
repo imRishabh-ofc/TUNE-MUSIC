@@ -13,7 +13,8 @@ const app = express();
 // CORS configuration
 const allowedOrigins = [
     'http://localhost:3000', // Local development
-    'https://tune-music.onrender.com' // Production URL on Render
+    'https://tune-music.onrender.com', // URL OnRender
+    'https://tune-music.vercel.app' // URL Vercel
 ];
 
 app.use(cors({
