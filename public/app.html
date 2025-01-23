@@ -487,29 +487,35 @@
     document.addEventListener("DOMContentLoaded", () => {
     const welcomeMessage = document.getElementById("welcome-message");
 
-    fetch("http://localhost:3000/api/profile", {
+    // Determine the base URL based on the current hostname
+    const baseURL = window.location.hostname === 'localhost' 
+        ? 'http://localhost:3000' 
+        : 'https://tune-music.onrender.com';
+
+    fetch(`${baseURL}/api/profile`, {
         method: 'GET',
         credentials: 'same-origin',  // Ensure cookies (session) are sent with the request
     })
-        .then((response) => {
-            if (!response.ok) {
-                throw new Error(`Failed to fetch profile data: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then((data) => {
-            if (data.profileName) {
-                welcomeMessage.textContent = `TUNE MUSIC | ${data.profileName}`;
-            } else {
-                console.error("Profile name not found in response.");
-                welcomeMessage.textContent = "TUNE MUSIC";
-            }
-        })
-        .catch((error) => {
-            console.error("Error fetching profile data:", error);
+    .then((response) => {
+        if (!response.ok) {
+            throw new Error(`Failed to fetch profile data: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then((data) => {
+        if (data.profileName) {
+            welcomeMessage.textContent = `TUNE MUSIC | ${data.profileName}`;
+        } else {
+            console.error("Profile name not found in response.");
             welcomeMessage.textContent = "TUNE MUSIC";
-        });
+        }
+    })
+    .catch((error) => {
+        console.error("Error fetching profile data:", error);
+        welcomeMessage.textContent = "TUNE MUSIC";
+    });
 });
+
 
 
 </script>
