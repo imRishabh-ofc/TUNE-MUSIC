@@ -383,12 +383,17 @@ music.addEventListener('ended', () => {
 
 
 document.addEventListener('keydown', (event) => {
+    // Check if the focused element is an input or textarea
+    const activeElement = document.activeElement;
+    if (activeElement.tagName.toLowerCase() === 'input' || activeElement.tagName.toLowerCase() === 'textarea') {
+        return; // Exit the function if typing in an input or textarea
+    }
+
     switch (event.key) {
         case ' ':
         case 'k':
         case 'K':
         case 'Enter':
-        case 'Shift':
             // Play/pause the song
             if (music.paused || music.currentTime <= 0) {
                 music.play();
@@ -405,7 +410,7 @@ document.addEventListener('keydown', (event) => {
         case 'ArrowRight':
             if (event.shiftKey) {
                 // Play the next song
-                nextSong()
+                nextSong();
             } else {
                 // Skip forward 5 seconds
                 music.currentTime = Math.max(music.currentTime + 5, 0);
