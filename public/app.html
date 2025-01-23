@@ -490,7 +490,9 @@
     // Determine the base URL based on the current hostname
     const baseURL = window.location.hostname === 'localhost' 
         ? 'http://localhost:3000' 
-        : 'https://tune-music.onrender.com';
+        : window.location.hostname === 'tune-music.onrender.com'
+        ? 'https://tune-music.onrender.com'
+        : 'https://tune-music.vercel.app';
 
     fetch(`${baseURL}/api/profile`, {
         method: 'GET',
